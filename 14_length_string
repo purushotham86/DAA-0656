@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "hello";
+    int length = strlen(str);
+    printf("spurushotham-192211671\n");
+    printf("Length of the string is: %d\n", length);
+    return 0;
+}
