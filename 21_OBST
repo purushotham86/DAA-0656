@@ -1,0 +1,54 @@
+#include <stdio.h>
+#define GRID_SIZE 10
+
+
+typedef struct {
+    int x;
+    int y;
+} Obstacle;
+// Function to place an obstacle at a specific position
+void placeObstacle(Obstacle* obst, int x, int y) {
+    obst->x = x;
+    obst->y = y;
+}
+
+// Function to check if there is an obstacle at a specific position
+int isObstacleAt(Obstacle* obst, int x, int y) {
+    return obst->x == x && obst->y == y;
+}
+
+// Function to print the grid with obstacles
+void printGrid(Obstacle* obstacles, int obstCount) {
+    for (int i = 0; i < GRID_SIZE; i++) {
+        for (int j = 0; j < GRID_SIZE; j++) {
+            int isObstacle = 0;
+            for (int k = 0; k < obstCount; k++) {
+                if (isObstacleAt(&obstacles[k], i, j)) {
+                    isObstacle = 1;
+                    break;
+                }
+            }
+            if (isObstacle) {
+                printf("X ");
+            } else {
+                printf(". ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+	printf("s purushotham-192211671");
+    Obstacle obstacles[3];
+
+    // Place obstacles at specific positions
+    placeObstacle(&obstacles[0], 2, 3);
+    placeObstacle(&obstacles[1], 5, 5);
+    placeObstacle(&obstacles[2], 7, 1);
+
+    // Print the grid with obstacles
+    printGrid(obstacles, 3);
+
+    return 0;
+}
